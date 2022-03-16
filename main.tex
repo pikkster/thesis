@@ -1,0 +1,112 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage[a4paper, inner=3cm, outer=3cm, top=2cm, bottom=3cm]{geometry}
+%\usepackage[numbers]{natbib}
+\usepackage{amsmath, amssymb, float}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{url} % use with urls when citing
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage[ruled,vlined,longend]{algorithm2e}
+\usepackage[labelfont=bf, width=.85\textwidth]{caption}
+\usepackage{subcaption}
+
+\usepackage[%
+	bibstyle=ieee,
+	citestyle=numeric,
+	isbn=true,
+	doi=true,
+	sorting=none,
+	url=true,
+	%defernumbers=true,
+	bibencoding=utf8,
+	backend=bibtex
+	]{biblatex} 
+\bibliography{references}
+\providecommand{\shortcite}[1]{\cite{#1}}
+\usepackage[onehalfspacing]{setspace} 
+
+
+\usepackage{subfiles} % Best loaded last in the preamble
+
+\begin{document}
+
+% Titlepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+\vspace*{20mm}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{åalogo-eng.png}
+\end{figure}
+\begin{center}
+	\Huge\textbf{Predicting the Time of Arrival at Port for Maritime Surface Ships in the Baltic Sea Using Recurrent Neural Networks}
+\end{center}
+\vfill
+\begin{flushright}
+Jonatan Lahtivuori\\
+40601
+\end{flushright}
+\end{titlepage}
+
+\pagenumbering{gobble}
+
+% ABSTRACT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subfile{sections/abstract}
+
+% TABLE OF CONTENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\tableofcontents
+
+% INTRODUCTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\pagenumbering{arabic}
+\section{Introduction}
+\subfile{sections/introduction}
+
+% AIS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Maritime vessels and traffic}
+\subfile{sections/ais}
+
+% NEURAL NETWORKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Recurrent Neural Networks}
+\subfile{sections/ml}
+
+% IMPLEMENTATION/SOLUTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Implementation}
+\subfile{sections/implementation}
+
+% RESULTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Results}
+
+\subfile{sections/results}
+
+% DISCUSSION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Discussion}
+
+\subfile{sections/discussion}
+
+% CONCLUSION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Conclusion}
+
+\subfile{sections/conclusion}
+
+
+
+\end{document}
