@@ -1,6 +1,4 @@
 \documentclass[12pt]{article}
-\usepackage{graphicx}
-\graphicspath{{images/}}
 \usepackage[a4paper, inner=3cm, outer=3cm, top=2cm, bottom=3cm]{geometry}
 %\usepackage[numbers]{natbib}
 \usepackage{amsmath, amssymb, float}
@@ -50,7 +48,7 @@ Jonatan Lahtivuori\\
 \end{flushright}
 \end{titlepage}
 
-\pagenumbering{gobble}
+\pagenumbering{gobble} % No pagenumbering for the first pages
 
 % ABSTRACT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -64,7 +62,7 @@ Jonatan Lahtivuori\\
 % INTRODUCTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\pagenumbering{arabic}
+\pagenumbering{arabic} % Start page numbering from after the TOC
 \section{Introduction}
 \subfile{sections/introduction}
 
@@ -90,21 +88,18 @@ Jonatan Lahtivuori\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section{Results}
-
 \subfile{sections/results}
 
 % DISCUSSION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section{Discussion}
-
 \subfile{sections/discussion}
 
 % CONCLUSION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section{Conclusion}
-
 \subfile{sections/conclusion}
 
 
