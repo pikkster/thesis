@@ -82,7 +82,9 @@ Estimated time of arrival is the estimated time when a vessel will reach its des
 
 \subsection{HELCOM dataset}
 
-Introduction to HELCOM
+The HELCOM dataset covers the period from January 2009 to December 2019. Each month for each year is stored as its own comma separated value \textit{.csv} file.
+
+The AIS data in the HELCOM dataset is already processed to some extent compared too raw AIS data, see example of raw AIS data in Section \textbf{ref to raw ais}.
 
 Describe the features and quirks with the HELCOM dataset as it is a processed dataset that contains AIS data already processed from the raw format. Merging of A and B AIS message types
 
@@ -100,7 +102,7 @@ Showing examples of the data as plots of the Baltic, also shows the area covered
 
 \subsubsection{Description of HELCOM dataset features}
 
-The HELCOM dataset have twelve unique features for each entry described in Table \ref{tabl:HELCOM-features}. There are bad rows in the dataset, i.e. rows that have a or many bad values.
+The HELCOM dataset have twelve unique features for each entry described in Table \ref{tabl:HELCOM-features}. The features are static, dynamic and voyage-related AIS data merged from multiple sources.
 
 \begin{table}[H]
 \centering
@@ -128,7 +130,9 @@ imo           & Unique identifier for each vessel, does not change              
 
 Unevenness of the recorded messages (time intervals distribution even) but large gaps in routes. Reasons can be merging of many databases, preprocessing of the data to unify the records. The number of "good" valid routes for training is much lower than the total number of routes. Some of that could be handled by generating routes (data) where there are gaps. In a realistic dataset with AIS data there are going to be faulty data and missing, so HELCOM data is quite accurate to real data without generating missing data.
 
-Vessels physical features and the grouping of different vessels by size.
+
+
+Vessels physical features and the grouping of different vessels by size. In Figure \ref{fig:vessel-classes} an example of one year of unique vessels which have visited the port of Naantali can be seen. 
 
 \begin{figure}[H]
 \centering
@@ -139,15 +143,39 @@ Vessels physical features and the grouping of different vessels by size.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=.5]{5y_ship_class.png}
-\caption{Defined vessel classes and distribution of all unique vessels for a 5 year period.}
+\includegraphics[scale=.5]{2015_ship_class.png}
+\caption{Defined vessel classes and distribution of all unique vessels for the year 2015. Size of the circle is related to the draught of the vessel.}
 \label{fig:vessel-classes}
 \end{figure}
 
 \subsection{Port of Naantali}
 
-The amount of data collected travelling to FINLI from the HELCOM dataset, rather busy port approx. 2 \% of the total data per month
+The Port of Naantali is a rather important and busy port in the Baltic Sea. With a reported total of over 8 million tonnes of cargo passing through the port and over 1,000 port calls during 2020 its logistical importance is of significance \cite{PoN_2021}. 
 
-The projects definition of the port, the bounding box with image.
+This is also recognised in the HELCOM data by the amount of the data that has any connections to the Port of Naantali.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\multicolumn{1}{|r|}{\cellcolor[HTML]{C0C0C0}\textbf{Year}} & \textbf{2009} & \textbf{2010} & \textbf{2011} & \textbf{2012} & \textbf{2013} & \textbf{2014} & \textbf{2015} & \textbf{2016} & \textbf{2017} & \textbf{2018} \\ \hline
+\textbf{\% of data}                           & 8.21          & 7.16          & 7.30          & 13.19         & 12.30         & 12.30         & 12.30         & 10.17         & 10.87         & 10.61         \\ \hline
+\end{tabular}
+\caption{Total amount of vessel data with connection to the Port of Naantali for each year of the HELCOM data.}
+\label{tab:HELCOM-data-percent}
+\end{table}
+
+This data is the complete timeline for each vessel that has at any point during the years visited the Port of Naantali. Only a fraction of this data is actual viable data for the routes, described in \textbf{SECTION REFERENCE}.
+
+The port is defined by manually defining a area that covers the whole operational area of the port, to include all berths and the possible routes to approach the port. Port of Naantali is for all vessels except small pleasure boats approachable from one direction, see Figure \ref{fig:FINLI-box}. This bounding box in red in Figure \ref{fig:FINLI-box} is what defines the area of when a vessel has entered the port. 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{FINLI_definition.png}
+\caption{Defined bounding area for the Port of Naantali outlined in red. A small sample of the incoming routes shown in blue.}
+\label{fig:FINLI-box}
+\end{figure}
+
+
 
 \end{document}
