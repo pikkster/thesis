@@ -76,7 +76,7 @@ Explain the algorithm behind getting the routes from the raw data set and that t
 \caption{Find all routes going to a area of interest}
 \label{alg:search}
 \end{algorithm}
-
+\vspace*{5mm}
 The end of a route is either vessels sog less than 0.1 for more than 5 consecutive messages or has travelled longer than 48 hours
 
 Duration of route travel time 
@@ -100,6 +100,13 @@ Validation of the routes extracted i.e gaps, no shorter than n number of message
 	\label{fig:flowchart}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=.45]{route-finding-9256420.png}
+	\caption{(A) Complete timeline for one vessel year 2013. (B) All possible routes for the same vessel. (C) All validated routes which are used for training. }
+	\label{fig:route-finding}
+\end{figure}
+
 The number of routes found from each complete year was at average 1395 routes. 
 
 The total number of routes for the period chosen was 13,955. However, only a fraction of these routes are valid routes. The final route validation and which rules are defined to find viable routes are explained in the next section.
@@ -109,9 +116,34 @@ POI (port of interest could also be thought of as Area of Interest). Timeline is
 
 \subsubsection{Coordinate accuracy}
 
-Scaling the accuracy from raw data to a suitable accuracy. GIS decimal degrees
+The latitude and longitude recorded in the HELCOM dataset with an accuracy of six decimal places, 0.111 meters, is not necessary.
+
+The level of scaling the coordinate accuracy was chosen to a decimal degree of three places. That will say 0.001 which is 111 meters. The accuracy of the vessels location will be within approximately 100 meters.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\rowcolor[HTML]{9B9B9B} 
+\textbf{Degrees} & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{Distance}} \\ \hline
+1.0              & 111 km                                                         \\ \hline
+\rowcolor[HTML]{EFEFEF} 
+0.1              & 11.1 km                                                        \\ \hline
+0.01             & 1.11 km                                                        \\ \hline
+\rowcolor[HTML]{EFEFEF} 
+0.001            & 111 m                                                          \\ \hline
+0.0001           & 11.1 m                                                         \\ \hline
+\rowcolor[HTML]{EFEFEF} 
+0.00001          & 1.11 m                                                         \\ \hline
+\end{tabular}
+\caption{Coordinate accuracy by decimal places in decimal degrees for latitude and longitude, from \textbf{ref GIS wiki}}
+\label{tab:gis-accuracy}
+\end{table}
+
+AIS messages transmitted within approximately 100 meters of each other will be thought of as sent from the same location using this scaling level.
 
 Vessel travelling at 14 knots (25 km/h) and a message interval of 10 minutes approx. will move 2.2 nmi (4.1 km) per message
+
 
 
 \subsubsection{Feature selection}
