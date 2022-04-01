@@ -5,10 +5,11 @@
 \begin{document}
 % AIS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Vessels navigating the Baltic Sea
+The Baltic Sea with an approximate surface area of 420,000 km$^2$ is rather small compared to other seas and navigating in the Baltic Sea is often confined to fairways, especially when getting closer to land and travelling in the archipelago. This creates highways of vessel traffic coming from and going to different ports in the Baltic Sea merging into one another. This is even more evident in the winter months when there are restrictions on where vessels are allowed to navigate due to the ice, which is governed by the Finnish and Swedish authorities. Other characteristics are the areas of international waters in the Baltic Sea; vessels travelling from and to the east part of the Baltic Sea often use these areas. 
 
-Importance of maritime traffic globally and timely operation
+The last years approximately 90 \% of all import and export for Finland was done by sea\cite{SVRY_2022}. There is no question about the importance of sea transports and maintaining efficient operations at sea and at port is of interest for all parties.
 
+\cite{SVRY_2022, TRAFICOM_2021}. 
 
 \subsection{Automatic identification system}
 
@@ -29,6 +30,8 @@ The information received by the AIS does not provide the full situational pictur
 
 The AIS integrated checks for data integrity, built-in integrity test (\textit{BIIT}), is not capable of validating data, for example a non-functional sensor will report as not available to the AIS.
 
+The nature of AIS being unencrypted and unauthenticated with the fact that there is no data validation before transmitting does entail that the integrity of the data is poor. The information available through AIS should not be trusted by itself and it is up too the OOW to safely navigate the vessel.
+
 The information available to transmit over AIS is divided into three groups static, dynamic and voyage-related.
 
 \begin{table}[H]
@@ -40,39 +43,39 @@ The information available to transmit over AIS is divided into three groups stat
 \rowcolor[HTML]{C0C0C0} 
 \textbf{Static}                                              &                                                                                   \\ \hline
 Maritime Mobile Service Identity (MMSI)                      & Set on installation, can change during vessels operational lifespan               \\ \hline
-\rowcolor[HTML]{EFEFEF} 
+%\rowcolor[HTML]{EFEFEF} 
 Call sign and name                                           & Set on installation, can change during vessels operational lifespan               \\ \hline
 IMO number                                                   & Set on installation                                                               \\ \hline
-\rowcolor[HTML]{EFEFEF} 
+%\rowcolor[HTML]{EFEFEF} 
 Length and beam                                              & Set on installation or if changed                                                 \\ \hline
 Type of ship                                                 & Selected from list of predefined values                                           \\ \hline
-\rowcolor[HTML]{EFEFEF} 
+%\rowcolor[HTML]{EFEFEF} 
 Location of electronic positioning system                    & Set on installation, can be changed                                               \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \textbf{Dynamic}                                             &                                                                                   \\ \hline
 Ships position with accuracy indication and integrity status & Automatically updated from the position sensor                                    \\ \hline
-\rowcolor[HTML]{EFEFEF} 
+%\rowcolor[HTML]{EFEFEF} 
 Position time stamp in UTC                                   & Automatically updated from the main position sensor                               \\ \hline
 Course over ground (COG)                                     & Automatically updated from the main position sensor if available                  \\ \hline
-\rowcolor[HTML]{EFEFEF} 
+%\rowcolor[HTML]{EFEFEF} 
 Speed over ground (SOG)                                      & Automatically updated from the main position sensor                               \\ \hline
 Heading                                                      & Automatically updated from the vessels heading sensor                             \\ \hline
-\rowcolor[HTML]{EFEFEF} 
+%\rowcolor[HTML]{EFEFEF} 
 Navigational status                                          & Manually entered by the OOW as needed                                             \\ \hline
 Rate of turn (ROT)                                           & Automatically updated from the vessels ROT sensor or from the vessels gyro        \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \textbf{Voyage-related}                                      &                                                                                   \\ \hline
 Draught                                                      & Manually entered at the start of the voyage                                       \\ \hline
-\rowcolor[HTML]{EFEFEF} 
+%\rowcolor[HTML]{EFEFEF} 
 Hazardous cargo (type)                                       & Manually entered at the start of the voyage confirming the presence of such cargo \\ \hline
 Destination and ETA                                          & Manually entered at the start of the voyage and updates as needed                 \\ \hline
-\rowcolor[HTML]{EFEFEF} 
+%\rowcolor[HTML]{EFEFEF} 
 Route plan (waypoints)                                       & Manually entered at the start of the voyage                                       \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \textbf{Safety-related}                                      &                                                                                   \\ \hline
 Short safety-related messages                                & Free format manually entered broadcasted to specific receiver or all vessels      \\ \hline
 \end{tabular}
-\caption{AIS data content and description, from \cite{IMO_2015}.}
+\caption{AIS data content and description, source \cite{IMO_2015}.}
 \label{tab:ais-data}
 \end{table}
 
@@ -80,13 +83,19 @@ Short safety-related messages                                & Free format manua
 
 Estimated time of arrival is the estimated time when a vessel will reach its destination, typically transmitted to the correct authorities 24 to 72 hours before arrival \cite{Veenstra_2021, EU_2009}. The means of communicating this ETA varies and the accuracy of the ETA is not guaranteed to be within any margin of error. Ports, being very complex infrastructures with many moving parts, has to operate with certain uncertainties of vessels arrival times and required demands and it is essential to plan port operations for a 24-hour period at a minimum \cite{Fancello_2011}. All uncertainties that can delay or alter any operations at port are therefore a risk.
 
-\subsection{HELCOM dataset}
+There are many different practices for relaying the ETA to the correct authorities, for example via the AIS, phones and email. However, a study by \Citeauthor{Mokhtari_2008} \cite{Mokhtari_2008} discovered that almost a majority of the transmitted AIS messages had faulty or inaccurate data for the destination and ETA. Another problem with the destination and ETA data, when the data was available, was that it was not updated and thus could lead to more trouble if any party thought the information as true.
+
+\subsection{The Baltic Marine Environment Protection Commission}
+
+The Baltic Marine Environment Protection Commission or Helsinki Commission (\textit{HELCOM}) as it is also known, was formed in 1974 parallel with the \textit{Convention on the Protection of the Marine Environment of the Baltic Sea}. The participating parties are Denmark, Estonia, the European Union, Finland, Germany, Latvia, Lithuania, Poland, Russia and Sweden with the goal to protect the marine environment from increasing exploitation and ensuring protection of the ecosystem in the Baltic Sea \cite{HELCOM_2014}.
+
+\subsubsection{HELCOM dataset}
 
 The HELCOM dataset covers the period from January 2009 to December 2019. Each month for each year is stored as its own comma separated value \textit{.csv} file.
 
-The AIS data in the HELCOM dataset is already processed to some extent compared too raw AIS data, see example of raw AIS data in Section \textbf{ref to raw ais}.
+The AIS data in the HELCOM dataset is already processed data from what is originally transmitted from the AIS. All rows in the dataset has been made uniform to include the same data, every entry in the dataset contains exactly the same features. This has been possible by merging many different databases into one and this has also made it possible to cover the whole operating area of HELCOM, which includes all of the Baltic Sea.
 
-Describe the features and quirks with the HELCOM dataset as it is a processed dataset that contains AIS data already processed from the raw format. Merging of A and B AIS message types
+The HELCOM dataset does not include the 
 
 HELCOM dataset has no ETA entries meaning to use this dataset for ETA prediction the ATA is calculated for all points on the route until the vessel has arrived, the true arrival time. Can't compare vessels ETA with the estimation but knows the estimated time left 
 
@@ -104,13 +113,16 @@ Showing examples of the data as plots of the Baltic, also shows the area covered
 
 The HELCOM dataset have twelve unique features for each entry described in Table \ref{tabl:HELCOM-features}. The features are static, dynamic and voyage-related AIS data merged from multiple sources.
 
+The combination of these features gives information about the vessels identification, position, time stamp, trajectory, draught and physical size.
+
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|m{7cm}|l|}
 \hline
+\rowcolor[HTML]{C0C0C0}
 \textbf{Name} & \textbf{Description}                                                  & \textbf{Value}             \\ \hline
 timestamp     & Unix epoch time in milliseconds when AIS message was created          & Min 1230768000000          \\ \hline
-mmsi          & Maritime Mobile Service Identities, unique for each vessel can change & 9 digits long              \\ \hline
+mmsi          & Maritime Mobile Service Identities, unique for each vessel can change & 9 digit identifier         \\ \hline
 lat           & Latitude position when AIS message was generated                      & Coordinate in WGS 84       \\ \hline
 long          & Longitude position when AIS message was generated                     & Coordinate in WGS 84       \\ \hline
 sog           & Speed over ground in knots                                            & 0.1 knot resolution        \\ \hline
@@ -127,31 +139,40 @@ imo           & Unique identifier for each vessel, does not change              
 \end{table}
 
 \subsubsection{Statistical information}
+\label{sec:AIS-stat}
+The data consists of 
 
 Unevenness of the recorded messages (time intervals distribution even) but large gaps in routes. Reasons can be merging of many databases, preprocessing of the data to unify the records. The number of "good" valid routes for training is much lower than the total number of routes. Some of that could be handled by generating routes (data) where there are gaps. In a realistic dataset with AIS data there are going to be faulty data and missing, so HELCOM data is quite accurate to real data without generating missing data.
 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=.5]{5y_ais_message_dist.png}
+	\caption{Time difference between AIS messages in the HELCOM dataset for a five year period.}
+	\label{fig:ais-msg-dist}
+\end{figure}
 
 
 Vessels physical features and the grouping of different vessels by size. In Figure \ref{fig:vessel-classes} an example of one year of unique vessels which have visited the port of Naantali can be seen. 
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=.5]{vessel-class-definition.png}
-\caption{Vessel class definition from HELCOM data, the positioning system marked with red. A is \textit{dimStern}, B is \textit{dimBow}, C is \textit{dimPort} and D is \textit{dimStarboard}.}
-\label{fig:vessel-class-def}
+	\centering
+	\includegraphics[scale=.5]{vessel-class-definition.png}
+	\caption{Vessel class definition from HELCOM data, the positioning system marked with red. A is \textit{dimStern}, B is \textit{dimBow}, C is \textit{dimPort} and D is \textit{dimStarboard}.}
+	\label{fig:vessel-class-def}
 \end{figure}
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=.5]{2015_ship_class.png}
-\caption{Defined vessel classes and distribution of all unique vessels for the year 2015. Size of the circle is related to the draught of the vessel.}
-\label{fig:vessel-classes}
+	\centering
+	\includegraphics[scale=.5]{2015_ship_class.png}
+	\caption{Defined vessel classes and distribution of all unique vessels for the year 2015. Size of the circle is related to the draught of the vessel.}
+	\label{fig:vessel-classes}
 \end{figure}
 
 
 \subsection{Port of Naantali}
 
-The Port of Naantali is a rather important and busy port in the Baltic Sea. With a reported total of over 8 million tonnes of cargo passing through the port and over 1,000 port calls during 2020 its logistical importance is of significance \cite{PoN_2021}. 
+The Port of Naantali is a rather important and busy port in the Baltic Sea and it is considered one of Finlands most busy ports \cite{SVRY_2022}. With a reported total of over 8 million tonnes of cargo passing through the port and over 1,000 port calls during 2020 its logistical importance is of significance \cite{PoN_2021}. The port did at average for the years 2018 through 2020 handle at average 5,8 \% of all of Finlands transports by sea and combined with the port at Kilpilahti handled all of Finlands crude oil transport \cite{TRAFICOM_2021}.
 
 This is also recognised in the HELCOM data by the amount of the data that has any connections to the Port of Naantali.
 
@@ -167,9 +188,10 @@ This is also recognised in the HELCOM data by the amount of the data that has an
 \label{tab:HELCOM-data-percent}
 \end{table}
 
-This data is the complete timeline for each vessel that has at any point during the years visited the Port of Naantali. Only a fraction of this data is actual viable data for the routes, described in \textbf{SECTION REFERENCE}.
+This data is the complete timeline for each vessel that has at any point during the years visited the Port of Naantali, including other voyages that are not going and coming from the Port of Naantali. Only a fraction of this data is actual viable data for the routes, described in \ref{sec:algo-section}.
 
 The port is defined by manually defining a area that covers the whole operational area of the port, to include all berths and the possible routes to approach the port. Port of Naantali is for all vessels except small pleasure boats approachable from one direction, see Figure \ref{fig:FINLI-box}. This bounding box in red in Figure \ref{fig:FINLI-box} is what defines the area of when a vessel has entered the port. 
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=.5]{FINLI_definition.png}
