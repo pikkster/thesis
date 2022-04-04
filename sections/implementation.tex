@@ -36,6 +36,8 @@ From the complete time window seen in Figure \ref{fig:timeline} only a fraction 
 
 \subsubsection{Algorithm for extracting routes from dataset}
 \label{sec:algo-section}
+A route is defined as a series of consecutive AIS messages where the first message in the series is the starting point for a vessel travelling to a port of interest. The last message in the series is the first messages when the vessel has entered the port of interest bounding area, see Figure \ref{fig:FINLI-box}. The routes does not need a specific starting point as this point will be chosen by a set of rules that will define when the route has started. The end of the route will be the same for all vessels as the goal is to find all routes coming from somewhere travelling to the port of interest.
+
 To find routes coming from anywhere and going to a area of interest or port a iterative approach is used. With a complete historical timeline of one vessel, the routes can be discovered by traversing the timeline in reversed chronological order. The end of a route, \textit{i.e.} the start of the search, is the first point where the vessel is leaving the bounding box. From this position traversing the timeline, in reversed chronological order, until a predefined condition is met will give the section of a vessels timeline which equals a route coming from somewhere travelling to a area of interest.
 
 The condition for when the start of the route, end of the search, is met, is whenever the duration of the route has exceeded 48 hours or the vessels speed over ground is zero, standing still, for more than 5 consecutive transmitted messages. The 48 hour time limit was defined for the reason that the maximum travel duration in the Baltic Sea is below 48 hours for a vessel moving at the mean speed and vessels travelling from outside the Baltic Sea has reached Kattegat, approximately, at this time. The reason behind checking that multiple transmitted messages have recorded the speed to be zero is to guarantee that the vessel has actually stopped and not slowed down due to other reasons. This condition can still introduce routes that have not started from another port but will minimize these routes.
@@ -136,13 +138,12 @@ The level of scaling the coordinate accuracy was chosen to a decimal degree of t
 0.00001          & 1.11 m                                                         \\ \hline
 0.000001          & 0.111 m                                                         \\ \hline
 \end{tabular}
-\caption{Coordinate accuracy by decimal places in decimal degrees for latitude and longitude, from \textbf{ref GIS wiki}}
+\caption{Coordinate accuracy by decimal places in decimal degrees for latitude and longitude, from \cite{GIS_2011}}
 \label{tab:gis-accuracy}
 \end{table}
 
-AIS messages transmitted within approximately 100 meters of each other will be thought of as sent from the same location using this scaling level.
+AIS messages transmitted within approximately 100 meters of each other will be thought of as sent from the same location using this scaling level. With a average vessel speed for all routes used, see Figure \ref{fig:sog-dist}, of approximately 14 knots (25 km/h) and a time difference between messages of 10 minutes a vessel will have moved 2.2 nmi (4.1 km) during this time. With a positional accuracy of approximately 100 meters this distance can vary but on the open sea a difference in $\pm$ 100 meters does not impact the overall time it will take to reach the destination.
 
-Vessel travelling at 14 knots (25 km/h) and a message interval of 10 minutes approx. will move 2.2 nmi (4.1 km) per message
 
 \subsubsection{Feature selection}
 
@@ -157,13 +158,13 @@ The target to predict is time to destination (\textit{TTD}) which is in minutes.
 \subsubsection{Time series data windowing and time distribution}
 \label{sec:timeseries}
 
-With the routes validated a final processing step is required to generate the time series data that is fed to the network. Regular RNN have poor performance when it comes to data that is unevenly sampled. Therefore it is vital to normalize the time difference between time steps used. The nature of AIS and the HELCOM dataset does mean that this is only viable to a certain degree.
+With the routes validated a final processing step is required to generate the time series data that is fed to the network. Regular RNN have poor performance when it comes to data that is unevenly sampled. Therefore it is vital to normalize the time difference between time steps. The nature of AIS and the HELCOM dataset does mean that this is only viable to a certain degree.
 
-A compromise with the time difference between messages was achieved by as evenly as possible sample data with longer time intervals, discarding messages in that interval, and by this achieving a improved time series with preferable time difference normalization. A lower limit of nine minutes was chosen to conform with what was discovered in Section \ref{sec:AIS-stat} and \ref{fig:ais-msg-dist} and the upper bound of twelve minutes has been set when validating the routes.
+A compromise with the time difference between messages was achieved by as evenly as possible sample data with longer time intervals, discarding messages in that interval, and by this achieving a improved time series with preferable time difference normalization. A lower limit of nine minutes was chosen to conform with what was discovered in Section \ref{sec:AIS-stat} and \ref{fig:ais-msg-dist} and the upper bound of twelve minutes has been set when validating the routes. Shorter time intervals should be possible with raw AIS data, but for the dataset used the number of routes that were viable without generating data between messages were too little. Decreasing the longest allowable gap between AIS messages in a route discarded too many routes.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=.55]{2009-2018-routes-message-dist.png}
+	\includegraphics[scale=.6]{2009-2018-routes-message-dist.png}
 	\caption{Normalized time differences between messages.}
 	\label{fig:norm-time}
 \end{figure}

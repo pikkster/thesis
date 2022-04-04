@@ -5,11 +5,11 @@
 \begin{document}
 % AIS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The Baltic Sea with an approximate surface area of 420,000 km$^2$ is rather small compared to other seas and navigating in the Baltic Sea is often confined to fairways, especially when getting closer to land and travelling in the archipelago. This creates highways of vessel traffic coming from and going to different ports in the Baltic Sea merging into one another. This is even more evident in the winter months when there are restrictions on where vessels are allowed to navigate due to the ice, which is governed by the Finnish and Swedish authorities. Other characteristics are the areas of international waters in the Baltic Sea; vessels travelling from and to the east part of the Baltic Sea often use these areas. 
+The Baltic Sea with an approximate surface area of 420,000 km$^2$ is rather small compared to other seas and navigating in the Baltic Sea is often confined to fairways, especially when getting closer to land and travelling in the archipelago. This creates highways of vessel traffic coming from and going to the many ports in the Baltic Sea merging into one another at some point during the voyage. This is even more evident in the winter months when there are restrictions on where vessels are allowed to navigate due to the ice, which is governed by the Finnish and Swedish authorities. Other characteristics are the areas of international waters in the Baltic Sea; vessels travelling from and to the east part of the Baltic Sea often use these areas. To enter the Baltic Sea from the Atlantic, all vessels have to travel through the Danish straits and Kattegat.
 
-The last years approximately 90 \% of all import and export for Finland was done by sea\cite{SVRY_2022}. There is no question about the importance of sea transports and maintaining efficient operations at sea and at port is of interest for all parties.
+The last years approximately 90 \% of all import and export for Finland was done by sea \cite{SVRY_2022}. There is no question about the importance of sea transports and maintaining efficient operations at sea and at port is of interest for all parties, especially in Finland where most of all imports and exports passes through ports.
 
-\cite{SVRY_2022, TRAFICOM_2021}. 
+One important port for the Finnish industry and economy is the Port of Naantali. Located close the city of Turku and having a central location in the Baltic Sea it was deemed to be a suitable candidate.
 
 \subsection{Automatic identification system}
 
@@ -79,11 +79,35 @@ Short safety-related messages                                & Free format manua
 \label{tab:ais-data}
 \end{table}
 
+Depending on the type of message sent by the AIS, the rate at which the AIS transmits messages autonomously is different. For static and voyage-related data the interval is six minutes between messages or at the request of another user. Dynamic information on the other hand takes the vessels current status into consideration at which rate to transmit messages.
+
+The different states of a vessel and at which rate it will transmit autonomously AIS messages with dynamic information can be seen in Figure \ref{tab:ais-rates}. Faster moving vessels will updater more frequently to better broadcast its location and trajectory to surrounding vessels. It is still important for the OOW to understand that not all vessels will be transmitting AIS data and therefore AIS is not guaranteed to provide a complete overview of the surroundings.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|m{7cm}|m{4cm}|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\textbf{Vessel state}                                  & \textbf{General reporting interval} \\ \hline
+At anchor or moored and not moving faster than 3 knots & 3 min                               \\ \hline
+At anchor or moored and moving faster than 3 knots     & 10 s                                \\ \hline
+0-14 knots                                             & 10 s                                \\ \hline
+Changing course at 0-14 knots                          & 3 1/3 s                             \\ \hline
+14-23 knots                                            & 6 s                                 \\ \hline
+Changing course at 14-23 knots                         & 2 s                                 \\ \hline
+Faster than 23 knots                                   & 2 s                                 \\ \hline
+Changing course at more than 23 knots                  & 2 s                                 \\ \hline
+\end{tabular}
+\caption{AIS message broadcast interval for dynamic information for class A vessels \cite{IMO_2015}.}
+\label{tab:ais-rates}
+\end{table}
+
+
 \subsubsection{Estimated Time of Arrival}
 
-Estimated time of arrival is the estimated time when a vessel will reach its destination, typically transmitted to the correct authorities 24 to 72 hours before arrival \cite{Veenstra_2021, EU_2009}. The means of communicating this ETA varies and the accuracy of the ETA is not guaranteed to be within any margin of error. Ports, being very complex infrastructures with many moving parts, has to operate with certain uncertainties of vessels arrival times and required demands and it is essential to plan port operations for a 24-hour period at a minimum \cite{Fancello_2011}. All uncertainties that can delay or alter any operations at port are therefore a risk.
+Estimated time of arrival is the estimated time when a vessel will reach its destination, typically transmitted to the correct authorities 24 to 72 hours before arrival \cite{Veenstra_2021, EU_2009}. The means of communicating this ETA varies and the accuracy of the ETA is not guaranteed to be within any margin of error. Ports, being very complex infrastructures with many moving parts, has to operate with certain uncertainties of vessels arrival times and required demands and it is essential to plan port operations for a 24-hour period at a minimum to ensure smooth operations \cite{Fancello_2011}. All uncertainties that can delay or alter any operations at one port are therefore a risk that can delay and disrupt all operations for not only the port in question but also all other ports that have any relations to the port.
 
-There are many different practices for relaying the ETA to the correct authorities, for example via the AIS, phones and email. However, a study by \Citeauthor{Mokhtari_2008} \cite{Mokhtari_2008} discovered that almost a majority of the transmitted AIS messages had faulty or inaccurate data for the destination and ETA. Another problem with the destination and ETA data, when the data was available, was that it was not updated and thus could lead to more trouble if any party thought the information as true.
+There are many different practices for relaying the ETA to the correct authorities, for example via the AIS, phones and email. However, a study by \Citeauthor{Mokhtari_2008} \cite{Mokhtari_2008} discovered that almost a majority of the transmitted AIS messages had faulty or inaccurate data for the destination and ETA. Another problem with the destination and ETA data, when the data was available, was that it was not updated and thus could lead to more problems if any party thought the information as true. A incorrect and inaccurate ETA could mean port authorities failing to plan its operations to handle incoming and outgoing traffic.
 
 \subsection{The Baltic Marine Environment Protection Commission}
 
@@ -91,13 +115,9 @@ The Baltic Marine Environment Protection Commission or Helsinki Commission (\tex
 
 \subsubsection{HELCOM dataset}
 
-The HELCOM dataset covers the period from January 2009 to December 2019. Each month for each year is stored as its own comma separated value \textit{.csv} file.
+The HELCOM dataset consisting of AIS data, covers the period from January 2009 to December 2019. Each month for each year is stored as its own comma separated value \textit{.csv} file.
 
-The AIS data in the HELCOM dataset is already processed data from what is originally transmitted from the AIS. All rows in the dataset has been made uniform to include the same data, every entry in the dataset contains exactly the same features. This has been possible by merging many different databases into one and this has also made it possible to cover the whole operating area of HELCOM, which includes all of the Baltic Sea.
-
-The HELCOM dataset does not include the 
-
-HELCOM dataset has no ETA entries meaning to use this dataset for ETA prediction the ATA is calculated for all points on the route until the vessel has arrived, the true arrival time. Can't compare vessels ETA with the estimation but knows the estimated time left 
+The AIS data in the HELCOM dataset has already been processed from what is originally transmitted from the AIS. All rows in the dataset has been made uniform to include the same data, every entry in the dataset contains exactly the same features. This has been possible by merging many different databases into one and this has also made it possible to cover the whole operating area of HELCOM, which includes all of the Baltic Sea.
 
 Showing examples of the data as plots of the Baltic, also shows the area covered
 
@@ -108,12 +128,11 @@ Showing examples of the data as plots of the Baltic, also shows the area covered
 \label{fig:heatmap}
 \end{figure}
 
-
 \subsubsection{Description of HELCOM dataset features}
 
 The HELCOM dataset have twelve unique features for each entry described in Table \ref{tabl:HELCOM-features}. The features are static, dynamic and voyage-related AIS data merged from multiple sources.
 
-The combination of these features gives information about the vessels identification, position, time stamp, trajectory, draught and physical size.
+The combination of these features gives information about the vessels identification, position, time stamp, trajectory, draught and physical size. 
 
 \begin{table}[H]
 \centering
@@ -140,20 +159,37 @@ imo           & Unique identifier for each vessel, does not change              
 
 \subsubsection{Statistical information}
 \label{sec:AIS-stat}
-The data consists of 
-
-Unevenness of the recorded messages (time intervals distribution even) but large gaps in routes. Reasons can be merging of many databases, preprocessing of the data to unify the records. The number of "good" valid routes for training is much lower than the total number of routes. Some of that could be handled by generating routes (data) where there are gaps. In a realistic dataset with AIS data there are going to be faulty data and missing, so HELCOM data is quite accurate to real data without generating missing data.
-
+The HELCOM dataset covers a large window of time and gives an insight into historical vessel movements on the Baltic Sea. The dataset has been created by merging many databases and processing the data to create a uniform dataset for the whole period. In this dataset it is possible to find vessels movements on the Baltic Sea, where they are going and where they have been, by grouping the data by unique vessels and then order the data for each vessel in chronological order. It is not given that a vessel will have a contiguous timeline without gaps, this due to the possibility when a vessel has travelled outside the area covered by the AIS or have turned off their AIS for any reason. These gaps can be many months even years long and does not impact the quality of the routes. Smaller gaps in the timeline of a vessel does however impact the quality of the routes. There are many reasons for why vessels timelines can have smaller gaps, less than a couple of hours, and all of them will negatively impact the possibility of finding good routes. Some of the most likely reasons are malfunctioning AIS, the AIS has been turned off or the data received has been faulty and not stored.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=.5]{5y_ais_message_dist.png}
-	\caption{Time difference between AIS messages in the HELCOM dataset for a five year period.}
+	\includegraphics[scale=.45]{raw_example_many_vessel_routes_comingandgoing.png}
+	\caption{Small window of time of raw AIS data from the HELCOM dataset. Coloured by unique vessels.}
+	\label{fig:raw-ais-data}
+\end{figure}
+
+Figure \ref{fig:raw-ais-data} shows a small window of time from the HELCOM dataset of all AIS data. From all of this raw data only a fraction of the data will be kept for further processing.
+
+The average speed over ground for the dataset seen in Figure \ref{fig:sog-dist}, indicates a even distribution of vessels travelling about 14 knots. This is expected from the types of vessels that are equipped with AIS and have been recorded in the dataset.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=.6]{2009-2018-sog.png}
+	\caption{Average vessel speed for a route for all routes used, from the period of 2009 to 2018.}
+	\label{fig:sog-dist}
+\end{figure}
+
+The time difference between AIS messages does not correlate to what raw AIS transmission rates should be, see Table \ref{tab:ais-rates}. A concentration of time difference between one and four minutes is another indication of pre-processing done by HELCOM, as the timesteps compared are from windows of time where vessels have been under way during a route.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=.6]{5y_ais_message_dist.png}
+	\caption{Time difference between AIS messages for any routes found during a five year period. All time differences greater than ten minutes have been collected in the same bar.}
 	\label{fig:ais-msg-dist}
 \end{figure}
 
 
-Vessels physical features and the grouping of different vessels by size. In Figure \ref{fig:vessel-classes} an example of one year of unique vessels which have visited the port of Naantali can be seen. 
+Vessels physical features and the grouping of different vessels by size. In Figure \ref{fig:vessel-classes} an example of one year of unique vessels which have visited the port of Naantali can be seen. Classifying vessels according to the physical size of the vessel has shown to be a efficient way of discerning different vessels capabilities of manoeuvring \cite{Jahn_2018}. It is expected that vessels of similar dimensions manoeuvre in a similar fashion. The classification was done by estimating different groups of vessels from their length and width, after which they were classified into classes according to the boxes seen in Figure \ref{fig:vessel-classes}.
 
 \begin{figure}[H]
 	\centering
@@ -188,9 +224,9 @@ This is also recognised in the HELCOM data by the amount of the data that has an
 \label{tab:HELCOM-data-percent}
 \end{table}
 
-This data is the complete timeline for each vessel that has at any point during the years visited the Port of Naantali, including other voyages that are not going and coming from the Port of Naantali. Only a fraction of this data is actual viable data for the routes, described in \ref{sec:algo-section}.
+This data is the complete timeline for each vessel that has at any point during the years visited the Port of Naantali, including other voyages that are not going and coming from the Port of Naantali. Only a fraction of this data is actual viable data for the routes, described in \ref{sec:algo-section}. Still, the fact that 10 \% on average of all data has any connection to the Port of Naantali further indicates its importance for the Finnish shipping industry and why it was chosen.
 
-The port is defined by manually defining a area that covers the whole operational area of the port, to include all berths and the possible routes to approach the port. Port of Naantali is for all vessels except small pleasure boats approachable from one direction, see Figure \ref{fig:FINLI-box}. This bounding box in red in Figure \ref{fig:FINLI-box} is what defines the area of when a vessel has entered the port. 
+The port is defined, for the scope of this work, by manually defining a area that covers the whole operational area of the port, to include all berths and the possible routes to approach the port. Port of Naantali is for all vessels except small pleasure boats approachable from one direction, see Figure \ref{fig:FINLI-box}. This bounding box in red in Figure \ref{fig:FINLI-box} is what defines the area of when a vessel has entered the port. 
 
 \begin{figure}[H]
 \centering
