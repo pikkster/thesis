@@ -3,8 +3,9 @@
 
 
 \begin{document}
-Python
-\subsection{Libraries used}
+
+
+\subsection{Libraries used for the implementation}
 
 Keras
 
@@ -15,9 +16,6 @@ Pandas
 Numpy
 
 Geopandas
-
-Packages and programming language used.
-
 
 \subsection{Data pre processing}
 
@@ -36,7 +34,7 @@ From the complete time window seen in Figure \ref{fig:timeline} only a fraction 
 
 \subsubsection{Algorithm for extracting routes from dataset}
 \label{sec:algo-section}
-A route is defined as a series of consecutive AIS messages where the first message in the series is the starting point for a vessel travelling to a port of interest. The last message in the series is the first messages when the vessel has entered the port of interest bounding area, see Figure \ref{fig:FINLI-box}. The routes does not need a specific starting point as this point bound to any position, rather it will get chosen from one of two possibilities. The end of the route will be the same for all vessels as the goal is to find all routes coming from somewhere travelling to the port of interest.
+A route is defined as a series of consecutive AIS messages where the first message in the series is the starting point for a vessel travelling to a port of interest. The last message in the series is the first messages when the vessel has entered the port of interest bounding area, see Figure \ref{fig:FINLI-box}. The routes does not need a specific starting point as this point bound to any position, rather it will get chosen from one of two possibilities. The end of the route will be the same for all vessels as the goal is to find all routes coming from somewhere travelling to the port of interest. A good route will also not have any gaps of time during the route.
 
 To find routes coming from anywhere and going to a area of interest or port a iterative approach is used. With a complete historical timeline of one vessel, the routes can be discovered by traversing the timeline in reversed chronological order. The end of a route, \textit{i.e.} the start of the search, is the first point where the vessel is leaving the bounding box. From this position, traversing the timeline, in reversed chronological order, until a predefined condition is met will give the section of a vessels timeline which equals a route coming from somewhere travelling to a area of interest.
 
@@ -101,21 +99,16 @@ Routes that have faulty data, \textit{i.e.} NaN values or other bad values, and 
 	\label{fig:flowchart}
 \end{figure}
 
+After all of the steps and validations above the final number of routes which fulfil the requirements defined is 3,973. The number of possible candidate routes was 13,955, 70 \% of all routes did not meet the requirements and were therefore discarded. This further indicates the issues with the veracity of AIS data. The number of routes that could be possible valid candidates could be higher by generating data for missing gaps on the timeline of the routes, when the gap is below a certain threshold. For the scope of this work, to utilize historical AIS data provided by HELCOM and create a model that can predict the ETA for vessels in the Baltic Sea, the number of routes found does prove it is possible, but with limitations.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=.45]{route-finding-9256420.png}
-	\caption{(A) Complete timeline for one vessel year 2013. (B) All possible routes for the same vessel. (C) All validated routes which are used for training. }
+	\caption{(A) Complete timeline for one vessel the year 2013. (B) All possible routes for the same vessel. (C) All validated routes for one year from one vessel which are used for training. }
 	\label{fig:route-finding}
 \end{figure}
-%
-% TODO!!
-%
-The number of routes found from each complete year was at average 1395 routes. 
 
-The total number of routes for the period chosen was 13,955. However, only a fraction of these routes are valid routes. The final route validation and which rules are defined to find viable routes are explained in the next section.
-What range of data was used for the final model and reason for so. The problems with AIS data and getting clean routes from start to finish and primarily enough routes for training and testing. 
-
-POI (port of interest could also be thought of as Area of Interest). Timeline is the vessels historical data which is fed into algorithm 1. Route validation according to rules and then save the complete route.
+Figure \ref{fig:route-finding} illustrates these limitations where routes has to be discarded for not meeting the required validation rules. Also with the data in Table \ref{tab:HELCOM-data-percent} in mind, the amount of data of the total timeline that make up the good routes is a only a fraction of it.
 
 \subsubsection{Coordinate accuracy}
 
@@ -189,16 +182,19 @@ With a route consisting of AIS messages with a time difference distribution in t
 	\label{fig:time-window}
 \end{figure}
 
-A prediction will be made for the last timestep in the time window, which in terms of real time prediction will require that for the first four timesteps, AIS messages received, a prediction can not yet be made. Only after the fifth message can a prediction be made. This also means that any five historical AIS messages could be used, if they fulfil the requirements for the time window.
+A prediction will be made for the last timestep in the time window, which in terms of real time prediction will require that for the first four timesteps, AIS messages received, a prediction can not yet be made. After the fifth message a prediction can be made. This also means that any five historical AIS messages could be used, if they fulfil the requirements for the time window.
 
 
-\subsection{ML model}
+\subsection{RNN model implementation}
 
 Description of the neural network model used and tested to find the optimal performer
 
+\subsubsection{Phased LSTM}
+
+Comparing the regular LSTM network with a Phased LSTM network, which sould perform better than LSTM when samples are irregularly sampled.
 
 \subsection{Comparison model}
 
-!!! If the travel distance left to destination is used in nmi for example, test the accuracy against simply calculating time left by the current speed and distance left 
+To compare the result of the RNN implement a simple solution which calculates the time required to cover the distance with the current speed.
 
 \end{document}
