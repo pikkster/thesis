@@ -5,21 +5,25 @@
 \begin{document}
 % AIS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The Baltic Sea with an approximate surface area of 420,000 km$^2$ is rather small compared to other seas and navigating in the Baltic Sea is often confined to fairways, especially when getting closer to land and travelling in the archipelago. This creates highways of vessel traffic coming from and going to the many ports in the Baltic Sea merging into one another at some point during the voyage. This is even more evident in the winter months when there are restrictions on where vessels are allowed to navigate due to the ice, which is governed by the Finnish and Swedish authorities. During the winter months, vessels might also be required to get help from an icebreaker to enter the port, and with only around 30 operational icebreakers in the Baltic Sea could even create queues to get assistance where vessels have to anchor until assistance arrives. Other characteristics are the areas of international waters in the Baltic Sea; vessels travelling from and to the east part of the Baltic Sea often use these areas as an example. To enter the Baltic Sea from the Atlantic, all vessels have to travel through the Danish straits and Kattegat.
+The Baltic Sea, with an approximate surface area of 420,000 km$^2$, is rather small compared to other seas and navigating in the Baltic Sea is often confined to fairways, especially when coming closer to land and travelling in the archipelago. This creates highways of vessel traffic coming from and going to the many ports in the Baltic Sea merging into one another at some point during the voyage. This is even more evident in the winter months when there are restrictions for where vessels are allowed to navigate due to the ice, which is governed by the Finnish and Swedish authorities \cite{Goerlandt_2017}. During the winter months, vessels might also be required to be assisted by an icebreaker to enter the port. With only around 30 operational icebreakers in the Baltic Sea, queues could even be created for assistance where vessels have to anchor until assistance arrives. Other characteristics are the areas of international waters in the Baltic Sea; vessels travelling from and to the eastern part of the Baltic Sea often use these areas as an example. To enter the Baltic Sea from the Atlantic, all vessels have to travel through the Danish straits and Kattegat.
 
-The past years, approximately 90 \% of all import and export of Finland was done by sea \cite{SVRY_2022}. There is no question about the importance of sea transports and maintaining efficient operations at sea and at port is of interest for all parties, especially in Finland where most of all imports and exports passes through ports at some point during the transportation.
+In recent years, approximately 90\% of all import and export of Finland was done by sea \cite{SVRY_2022}. There is no question about the importance of sea transports and maintaining efficient operations at sea and at port is of interest for all parties, especially Finland where most of all import and export passes through ports at some point during the transportation.
 
-One important port for the Finnish industry and economy is the Port of Naantali. Located close the city of Turku and having a central location in the Baltic Sea it was deemed to be a suitable candidate for the thesis.
+One important port for the Finnish industry and economy is the Port of Naantali. Located close the city of Turku and having a central location in the Baltic Sea, it was deemed to be a suitable candidate for this thesis.
 
 \subsection{Automatic identification system}
 
-Automatic identification system (\textit{AIS}) was introduced by the International Maritime Organization (\textit{IMO}) in the early 2000's in accordance with the Safety of Life at Sea (\textit{SOLAS}) treaty as an open communication tool for all maritime traffic. The main objectives of the treaty is to improve the safety of life at sea, protection of the marine environment and safety and efficiency of navigation \cite{IMO_2015}. In its general operating form, AIS operates on two VHF channels and all vessels or base stations within the vessels transmission range receive the messages transmitted and vice versa the vessel receives all messages broadcasted in its receiving range. The broadcasting is based on Self-organized Time Division Multiple Access (\textit{(S)TDMA}) with a minimum of 2000 time slots per minute broadcasting capacity rate and the ship-to-ship communication for vessels closer to each other, takes precedence over vessels farther away from one another, which allows for sharing time slots, and thus overloading the available time slots \cite{IMO_2015}.
+Automatic identification system (\textit{AIS}) was introduced by the International Maritime Organization (\textit{IMO}) in the early 2000's in accordance with the Safety of Life at Sea (\textit{SOLAS}) treaty as an open communication tool for all maritime traffic. The main objectives of the treaty are to improve the safety of life at sea, protection of the marine environment and safety and efficiency of navigation \cite{IMO_2015}. 
 
-The IMO requires in accordance with regulation V/19 of SOLAS, that all vessels with a gross tonnage of 300 or more on international voyages, cargo vessels of 500 gross tonnage or more not on international voyages and all passenger vessel disregarding the gross tonnage to be equipped with an AIS. Further, the EU requires new-built fishing vessels longer than 15 meters to be fitted with an AIS from November 2010 and existing vessels to install a AIS by May 2014 at the latest \cite{EU_2011}. There are two types of AIS, Class A and Class B. Class A transceiver are the more common and are compliant with the IMO regulations whereas Class B transceivers are not subject to the full IMO AIS requirements. Class B transceivers are typically simpler, of lower cost and installed on smaller vessels of one's own choosing for improving the situational awareness. Class A transceivers take precedence over Class B transceivers when broadcasting.
+AIS was developed as a tool for exchanging information vessel-to-vessel and vessel to base-station, to improve the situational awareness and as a system to track vessels. It was first used by vessel traffic services (\textit{VTS}), but has since its introduction been exploited for many other services and studies. Some of these are collision avoidance \cite{Mou_2010}, accidents during wintertime \cite{Goerlandt_2017}, the impact of ice on vessel performance \cite{Montewka_2015}, predicting vessels arrival time \cite{Jahn_2018, Alessandrini_2019, El_2020, Veenstra_2021, real-eta} and vessel tracking services such as MarineTraffic (\url{https://www.marinetraffic.com/}).
 
-The vessels onboard sensors and positioning systems interface with the AIS to allow for communicating the status of the vessel, both static and dynamic information. AIS also allows for voyage related information and safety-related information to be transmitted via the system, see Table \ref{tab:ais-data}. The AIS guidelines requires that there is a minimum display and keyboard for input and receiving data, for updating information manually and retrieving data received via AIS. Some data for the AIS is entered only once, other has to be entered for every voyage and other data will be automatically gathered from the vessels onboard sensors.
+In its general operating form, AIS operates on two VHF channels and all vessels or base stations within the vessels transmission range receive the messages transmitted and, vice versa, the vessel receives all messages broadcasted in its receiving range. The broadcasting is based on Self-organized Time Division Multiple Access (\textit{(S)TDMA}) with a minimum of 2000 time slots per minute broadcasting capacity rate and the ship-to-ship communication for vessels closer to each other takes precedence over vessels farther away from one another, which allows for sharing time slots and, thus, overloading the available time slots \cite{IMO_2015}.
 
-The information received by the AIS does not provide the full situational picture of the vessels surroundings and should only be used as a navigational and situational awareness aid.
+In accordance with regulation V/19 of SOLAS, the IMO requires that all vessels with a gross tonnage of 300 or more on international voyages, cargo vessels of 500 gross tonnage or more not on international voyages and all passenger vessels disregarding the gross tonnage to be equipped with an AIS. Further, the EU requires new-built fishing vessels longer than 15 meters to be fitted with an AIS from November 2010 and existing vessels to install an AIS by May 2014 at the latest \cite{EU_2011}. There are two types of AIS, Class A and Class B. Class A transceivers are more common and are compliant with the IMO regulations, whereas Class B transceivers are not subject to the full IMO AIS requirements. Class B transceivers are typically simpler, of lower cost and installed on smaller vessels of one's own choosing for improving the situational awareness. Class A transceivers take precedence over Class B transceivers when broadcasting.
+
+The vessels onboard sensors and positioning systems interface with the AIS to allow for communicating the status of the vessel, both static and dynamic information. The AIS also allows for voyage-related information and safety-related information to be transmitted via the system, see Table \ref{tab:ais-data}. The AIS guidelines require that there is a minimum display and keyboard for input and receiving data, for updating information manually and retrieving data received via the AIS. Some data for the AIS are entered only once, some have to be entered for every voyage and others will be automatically gathered from the vessel's onboard sensors.
+
+The information received by the AIS does not provide the full situational picture of the vessel's surroundings and should only be used as a navigational and situational awareness aid.
 
 \begin{figure}[H]
 \centering
@@ -28,11 +32,11 @@ The information received by the AIS does not provide the full situational pictur
 \label{fig:ais-sop}
 \end{figure}
 
-The AIS integrated checks for data integrity, built-in integrity test (\textit{BIIT}), is not capable of validating data, for example a non-functional sensor will report as not available to the AIS. This can introduce faulty data being broadcasted to surrounding vessels and could create dangerous situations.
+The AIS has a built-in integrity test (\textit{BIIT}) that can automatically check that the AIS is operating without failures or malfunctions. If any failures or malfunctions are detected, an alarm is given to notify the user that the AIS is not operating as it should. The BIIT runs integrity tests continuously or at an interval deemed appropriate for the vessel's current situation. However, the BIIT does not validate the quality or accuracy of the data received from the onboard sensors of the vessel nor the data entered manually. This can introduce faulty data being broadcasted to surrounding vessels and could create dangerous situations. It is recommended that regular checks of the data transmitted by the AIS are validated for accuracy and quality \cite{IMO_2015}.
 
-The nature of AIS being unencrypted and unauthenticated with the fact that there is no data validation before transmitting does entail that the veracity of the data is poor. The information available through AIS should not be trusted by itself and it is up too the OOW to safely operate the vessel and ensure safe navigation for the vessel and vessels in its surroundings. 
+AIS data is not encrypted nor authenticated when transmitted to other vessels or base stations. This, with the fact there is no validation of accuracy or quality, leads to poor veracity of the data transmitted. The information available through the AIS should not be trusted by itself and it is up to the OOW to safely operate the vessel and ensure safe navigation for the vessel and vessels in its surroundings. A study by \citeauthor{Felski_2013} found that the integrity of AIS data was for the most part reliable, but can not be the only trusted source of information regarding other vessels intentions. The most useful information gained from the AIS was other vessels name, so that it would be possible to contact the vessel over radio and communicate with the vessel what its intentions are. The study also concluded that the veracity of dynamic data was better at open sea compared to in port areas where the speed was lower. As the majority of the duration of the routes will be at open sea moving at higher speed the veracity should be of minor concern for the work of this thesis.
 
-The information available to transmit over AIS is divided into three groups; static, dynamic and voyage-related.
+The information available to transmit over AIS is divided into three groups, static, dynamic and voyage-related.
 
 \begin{table}[H]
 \centering
@@ -42,9 +46,9 @@ The information available to transmit over AIS is divided into three groups; sta
 \multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{Data}}  & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Description}}                 \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \textbf{Static}                                              &                                                                                   \\ \hline
-Maritime Mobile Service Identity (MMSI)                      & Set on installation, can change during vessels operational lifespan               \\ \hline
+Maritime Mobile Service Identity (MMSI)                      & Set on installation, can change during vessel's operational lifespan               \\ \hline
 %\rowcolor[HTML]{EFEFEF} 
-Call sign and name                                           & Set on installation, can change during vessels operational lifespan               \\ \hline
+Call sign and name                                           & Set on installation, can change during vessel's operational lifespan               \\ \hline
 IMO number                                                   & Set on installation                                                               \\ \hline
 %\rowcolor[HTML]{EFEFEF} 
 Length and beam                                              & Set on installation or if changed                                                 \\ \hline
@@ -53,22 +57,22 @@ Type of ship                                                 & Selected from lis
 Location of electronic positioning system                    & Set on installation, can be changed                                               \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \textbf{Dynamic}                                             &                                                                                   \\ \hline
-Ships position with accuracy indication and integrity status & Automatically updated from the position sensor                                    \\ \hline
+Vessel's position with accuracy indication and integrity status & Automatically updated from the position sensor                                    \\ \hline
 %\rowcolor[HTML]{EFEFEF} 
 Position time stamp in UTC                                   & Automatically updated from the main position sensor                               \\ \hline
-Course over ground (COG)                                     & Automatically updated from the main position sensor if available                  \\ \hline
+Course over ground (COG)                                     & Automatically updated from the main position sensor, if available                  \\ \hline
 %\rowcolor[HTML]{EFEFEF} 
 Speed over ground (SOG)                                      & Automatically updated from the main position sensor                               \\ \hline
-Heading                                                      & Automatically updated from the vessels heading sensor                             \\ \hline
+Heading                                                      & Automatically updated from the vessel's heading sensor                             \\ \hline
 %\rowcolor[HTML]{EFEFEF} 
-Navigational status                                          & Manually entered by the OOW as needed                                             \\ \hline
-Rate of turn (ROT)                                           & Automatically updated from the vessels ROT sensor or from the vessels gyro        \\ \hline
+Navigational status                                          & Manually entered by the OOW, as needed                                             \\ \hline
+Rate of turn (ROT)                                           & Automatically updated from the vessel's ROT sensor or from the vessel's gyro        \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \textbf{Voyage-related}                                      &                                                                                   \\ \hline
 Draught                                                      & Manually entered at the start of the voyage                                       \\ \hline
 %\rowcolor[HTML]{EFEFEF} 
 Hazardous cargo (type)                                       & Manually entered at the start of the voyage confirming the presence of such cargo \\ \hline
-Destination and ETA                                          & Manually entered at the start of the voyage and updates as needed                 \\ \hline
+Destination and ETA                                          & Manually entered at the start of the voyage and updates, as needed                 \\ \hline
 %\rowcolor[HTML]{EFEFEF} 
 Route plan (waypoints)                                       & Manually entered at the start of the voyage                                       \\ \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -79,9 +83,9 @@ Short safety-related messages                                & Free format manua
 \label{tab:ais-data}
 \end{table}
 
-Depending on the type of message sent by the AIS, the rate at which the AIS transmits messages autonomously changes. For static and voyage-related data the interval is six minutes between messages or at the request of another user. Dynamic information on the other hand takes the vessels current navigational status into consideration at which rate to transmit messages.
+Depending on the type of message sent by the AIS, the rate at which the AIS transmits messages autonomously changes. For static and voyage-related data the interval is six minutes between messages or at the request of another user. Dynamic information, in contrast, takes the vessel's current navigational status into consideration at which rate to transmit messages.
 
-The different states of a vessel and at which rate it will transmit autonomously AIS messages with dynamic information can be seen in Table \ref{tab:ais-rates}. Faster moving vessels will broadcast its location and trajectory more frequently as a faster moving vessel will cover longer distances and can alter its course more over a shorter time. It is still important for the OOW to understand that not all vessels will be transmitting AIS data and therefore AIS is not guaranteed to provide a complete overview of the surroundings. It is also not guaranteed that other vessels are receiving AIS data and could therefore be a risk factor. 
+The different states of a vessel and at which rate it will transmit autonomously AIS messages with dynamic information can be seen in Table \ref{tab:ais-rates}. Faster moving vessels will broadcast their location and trajectory more frequently as a faster moving vessel will cover longer distances and can alter its course more over a shorter time. It is still important for the OOW to understand that not all vessels will be transmitting AIS data and, therefore, the AIS is not guaranteed to provide a complete overview of the surroundings. It is also not guaranteed that other vessels are receiving AIS data and could, therefore, be a risk factor. 
 
 \begin{table}[H]
 \centering
@@ -105,13 +109,13 @@ Changing course at more than 23 knots                  & 2 s                    
 
 \subsubsection{Estimated Time of Arrival}
 
-Estimated time of arrival is the estimated time when a vessel will reach its destination, typically transmitted to the correct authorities 24 to 72 hours before arrival \cite{Veenstra_2021, EU_2009}. The means of communicating this ETA varies and the accuracy of the ETA is not guaranteed to be within any margin of error. Ports, being very complex infrastructures with many moving parts, has to operate with certain uncertainties of vessels arrival times and required demands and it is essential to plan port operations for a 24-hour period at a minimum to ensure smooth operations \cite{Fancello_2011}. All uncertainties that can delay or alter any operations at one port are therefore a risk that can delay and disrupt all operations for not only the port in question but also all other ports that have any relations to the port.
+Estimated time of arrival is the estimated time when a vessel will reach its destination, typically transmitted to the correct authorities 24 to 72 hours before arrival \cite{Veenstra_2021, EU_2009}. The means of communicating this ETA varies and the accuracy of the ETA is not guaranteed to be within any margin of error. Ports, being very complex infrastructures with many moving parts, have to operate with certain uncertainties of vessels' arrival times and required demands and it is essential to plan port operations for a 24-hour period at a minimum to ensure smooth operations \cite{Fancello_2011}. All uncertainties that can delay or alter any operations at one port are, therefore, a risk that can delay and disrupt all operations for not only the port in question but also all other ports that have any relations to the port.
 
-There are many different practices for relaying the ETA to the correct authorities, for example via the AIS, phones and email. However, a study by \Citeauthor{Mokhtari_2008} \cite{Mokhtari_2008} discovered that almost a majority of the transmitted AIS messages had faulty or inaccurate data for the destination and ETA. Another risk discovered with the destination and ETA, when the data was available, was that it was not updated and thus could lead to more problems if any party thought the information to be true. An incorrect or inaccurate ETA could mean port authorities failing to plan its operations to handle incoming and outgoing traffic within the expected time.
+There are many different practices for relaying the ETA to the correct authorities, for example via the AIS, phones and email. However, a study by \Citeauthor{Mokhtari_2008} \cite{Mokhtari_2008} discovered that almost a majority of the transmitted AIS messages had faulty or inaccurate data for the destination and ETA. Another risk discovered with the destination and ETA, when the data was available, was that it was not updated and, thus, could lead to more problems if any party thought the information to be true. An incorrect or inaccurate ETA could mean that port authorities fail to plan their operations to handle incoming and outgoing traffic within the expected time.
 
 \subsection{The Baltic Marine Environment Protection Commission}
 
-The Baltic Marine Environment Protection Commission or Helsinki Commission (\textit{HELCOM}) as it is also known, was formed in 1974 parallel with the \textit{Convention on the Protection of the Marine Environment of the Baltic Sea}. The participating parties are Denmark, Estonia, the European Union, Finland, Germany, Latvia, Lithuania, Poland, Russia and Sweden with the goal to protect the marine environment from increasing exploitation and ensuring protection of the ecosystem in the Baltic Sea \cite{HELCOM_2014}.
+The Baltic Marine Environment Protection Commission, or Helsinki Commission (\textit{HELCOM}) as it is also known, was formed in 1974 parallel with the \textit{Convention on the Protection of the Marine Environment of the Baltic Sea}. The participating parties are Denmark, Estonia, the European Union, Finland, Germany, Latvia, Lithuania, Poland, Russia and Sweden with the goal to protect the marine environment from increasing exploitation and ensuring protection of the ecosystem in the Baltic Sea \cite{HELCOM_2014}.
 
 \begin{figure}[H]
 	\centering
@@ -120,11 +124,12 @@ The Baltic Marine Environment Protection Commission or Helsinki Commission (\tex
 	\label{fig:helcom-area}
 \end{figure}
 
+In the early 2000s, as part of the HELCOM Copenhagen Declaration, it was decided that the Baltic Sea would be covered by an regional AIS network, to share AIS data in real-time with all participating countries. The Baltic Sea became the first region that is covered by AIS stations, allowing for real-time tracking and monitoring of all vessels equipped with an AIS in the region.
 \subsubsection{HELCOM dataset}
 
 The HELCOM dataset consisting of AIS data, covers the period from January 2009 to December 2019. Each month for each year is stored as its own comma separated value \textit{.csv} file.
 
-The AIS data in the HELCOM dataset has already been processed from what is originally transmitted from the AIS. All rows in the dataset has been made uniform to include the same data, every entry in the dataset contains exactly the same features. This has been possible by merging many different databases into one and this has also made it possible to cover the whole operating area of HELCOM, which includes all of the Baltic Sea seen in Figure \ref{fig:helcom-area}.
+The AIS data in the HELCOM dataset have already been processed from what is originally transmitted from the AIS. All rows in the dataset has been made uniform to include the same data; every entry in the dataset contains exactly the same features. This has been possible by merging many different databases into one and this has also made it possible to cover the whole operating area of HELCOM, which includes all of the Baltic Sea, as seen in Figure \ref{fig:helcom-area}.
 
 %
 % Include small timewindow of helcom dataset mapped
@@ -133,9 +138,9 @@ The AIS data in the HELCOM dataset has already been processed from what is origi
 
 \subsubsection{Description of HELCOM dataset features}
 
-The HELCOM dataset have twelve unique features for each entry described in Table \ref{tabl:HELCOM-features}. The features are static, dynamic and voyage-related AIS data merged from multiple sources.
+The HELCOM dataset has twelve unique features for each entry, as described in Table \ref{tabl:HELCOM-features}. The features are static, dynamic and voyage-related AIS data merged from multiple sources.
 
-The combination of these features gives information about the vessels identification, position, time stamp, trajectory, draught and physical size. 
+The combination of these features gives information about the vessel's identification, position, time stamp, trajectory, draught and physical size. 
 
 \begin{table}[H]
 \centering
@@ -144,7 +149,7 @@ The combination of these features gives information about the vessels identifica
 \rowcolor[HTML]{C0C0C0}
 \textbf{Name} & \textbf{Description}                                                  & \textbf{Value}             \\ \hline
 timestamp     & Unix epoch time in milliseconds when AIS message was created          & Min 1230768000000          \\ \hline
-mmsi          & Maritime Mobile Service Identities, unique for each vessel can change & 9 digit identifier         \\ \hline
+mmsi          & Maritime Mobile Service Identities, unique for each vessel, can change & 9 digit identifier         \\ \hline
 lat           & Latitude position when AIS message was generated                      & Coordinate in WGS 84       \\ \hline
 long          & Longitude position when AIS message was generated                     & Coordinate in WGS 84       \\ \hline
 sog           & Speed over ground in knots                                            & 0.1 knot resolution        \\ \hline
@@ -162,7 +167,7 @@ imo           & Unique identifier for each vessel, does not change              
 
 \subsubsection{Statistical information}
 \label{sec:AIS-stat}
-The HELCOM dataset covers a large window of time and gives an insight into historical vessel movements on the Baltic Sea. The dataset has been created by merging many databases and processing the data to create a uniform dataset for the whole period. In this dataset it is possible to find vessels movements on the Baltic Sea, where they are going and where they have been, by grouping the data by unique vessels and then order the data for each vessel in chronological order. It is not given that a vessel will have a contiguous timeline without gaps, this due to the possibility when a vessel has travelled outside the area covered by the AIS or have turned off their AIS for any reason. These gaps can be many months even years long and does not impact the quality of the routes. Smaller gaps in the timeline of a vessel does however impact the quality of the routes. There are many reasons for why vessels timelines can have smaller gaps, less than a couple of hours, and all of them will negatively impact the possibility of finding good routes. Some of the most likely reasons are malfunctioning AIS, the AIS has been turned off or the data received has been faulty and not stored.
+The HELCOM dataset covers a large window of time and gives an insight into historical vessel movements on the Baltic Sea. The dataset has been created by merging many databases and processing the data to create a uniform dataset for the whole period. In this dataset, it is possible to find vessels' movements on the Baltic Sea, where they are going and where they have been, by grouping the data by unique vessels and then order the data for each vessel in chronological order. It is not given that a vessel will have a contiguous timeline without gaps, this due to the possibility when a vessel has travelled outside the area covered by the AIS or has turned off its AIS for any reason. These gaps can be many months, even years, long and do not impact the quality of the routes. Smaller gaps in the timeline of a vessel do, however, impact the quality of the routes. There are many reasons why vessels' timelines can have smaller gaps, less than a couple of hours, and all of them will negatively impact the possibility of finding good routes. Some of the most likely reasons are malfunctioning AIS, the AIS has been turned off or the data received have been faulty and not stored.
 
 \begin{figure}[H]
 	\centering
@@ -171,9 +176,9 @@ The HELCOM dataset covers a large window of time and gives an insight into histo
 	\label{fig:raw-ais-data}
 \end{figure}
 
-Figure \ref{fig:raw-ais-data} shows a small window of time from the HELCOM dataset of all AIS data. Only a fraction of this data is viable for further processing, but a first pass over the whole dataset is required to capture all possible vessels for each month.
+Figure \ref{fig:raw-ais-data} shows a small window of time from the HELCOM dataset of all AIS data. Only a fraction of these data is viable for further processing, but a first pass over the whole dataset is required to capture all possible vessels for each month.
 
-The average speed over ground for routes going to the Port of Naantali seen in Figure \ref{fig:sog-dist}, indicates a even distribution of vessels travelling about 14 knots. This is expected from the types of vessels that are equipped with AIS and have been recorded in the dataset.
+The average speed over ground for routes going to the Port of Naantali, seen in Figure \ref{fig:sog-dist}, indicates an even distribution of vessels travelling about 14 knots. This is expected from the types of vessels that are equipped with an AIS and have been recorded in the dataset.
 
 \begin{figure}[H]
 	\centering
@@ -192,7 +197,7 @@ The time difference between AIS messages does not correlate to what raw AIS tran
 \end{figure}
 
 
-Vessels physical features and the grouping of different vessels by size. In Figure \ref{fig:vessel-classes} an example of one year of unique vessels which have visited the port of Naantali can be seen. Classifying vessels according to the physical size of the vessel has shown to be a efficient way of discerning different vessels capabilities of manoeuvring \cite{Jahn_2018}. It is expected that vessels of similar dimensions manoeuvre in a similar fashion. The classification was done by estimating different groups of vessels from their length and width, after which they were classified into classes according to the boxes seen in Figure \ref{fig:vessel-classes}.
+Vessels' physical features and the grouping of different vessels by size. In Figure \ref{fig:vessel-classes}, an example of one year of unique vessels which have visited the port of Naantali can be seen. Classifying vessels according to the physical size of the vessel has shown to be an efficient way of discerning different vessels' ability to manoeuvre \cite{Jahn_2018}. It is expected that vessels of similar dimensions manoeuvre in a similar fashion. The classification was done by estimating different groups of vessels from their length and width, after which they were classified into classes according to the boxes seen in Figure \ref{fig:vessel-classes}.
 
 \begin{figure}[H]
 	\centering
@@ -211,7 +216,7 @@ Vessels physical features and the grouping of different vessels by size. In Figu
 \newpage
 \subsection{Port of Naantali}
 
-The Port of Naantali is a rather important and busy port in the Baltic Sea and it is considered one of Finlands most busy ports \cite{SVRY_2022}. With a reported total of over 8 million tonnes of cargo passing through the port and over 1,000 port calls during 2020 its logistical importance is of significance \cite{PoN_2021}. The port did at average for the years 2018 through 2020 handle at average 5,8 \% of all of Finlands transports by sea and combined with the port at Kilpilahti handled all of Finlands crude oil transport \cite{TRAFICOM_2021}.
+The Port of Naantali is a rather important and busy port in the Baltic Sea and it is considered one of Finland's busiest ports \cite{SVRY_2022}. With a reported total of over 8 million tonnes of cargo passing through the port and over 1,000 port calls during 2020, its logistical importance is of significance \cite{PoN_2021}. For the years 2018 through 2020, the port handled on average 5.8\% of all of Finland's transports by sea and, combined with the port at Kilpilahti, handled all of Finland's crude oil transport \cite{TRAFICOM_2021}.
 
 This is also recognised in the HELCOM data by the amount of the data that has any connections to the Port of Naantali.
 
@@ -227,9 +232,9 @@ This is also recognised in the HELCOM data by the amount of the data that has an
 \label{tab:HELCOM-data-percent}
 \end{table}
 
-The percentage of the data in Table \ref{tab:HELCOM-data-percent} is the complete timeline for each vessel that has at any point during the years visited the Port of Naantali, including other voyages that are not going and coming from the Port of Naantali. Only a fraction of this data is actual viable data for the routes, described in \ref{sec:algo-section}. Still, the fact that 10 \% on average of all data has any connection to the Port of Naantali further indicates its importance for the Finnish shipping industry and corroborate it being chosen of all possible ports.
+The percentage of the data in Table \ref{tab:HELCOM-data-percent} is the complete timeline for each vessel that has at any point during the years visited the Port of Naantali, including other voyages that are not going and coming from the Port of Naantali. Only a fraction of these data is actual viable data for the routes, as described in \ref{sec:algo-section}. Still, the fact that 10\% on average of all data has any connection to the Port of Naantali further indicates its importance for the Finnish shipping industry and corroborates it being chosen of all possible ports.
 
-The port is defined, for the scope of this work, by manually defining a area that covers the whole operational area of the port, to include all berths and the possible routes to approach the port. Port of Naantali is for all vessels except small pleasure boats approachable from one direction, see Figure \ref{fig:FINLI-box}. The bounding box in red in Figure \ref{fig:FINLI-box} is what defines the area of when a vessel has entered the port \textit{i.e.} what defines a port. For the scope of this thesis, it is the port authorities responsibility to ensure vessels are allowed to berth as close to the ETA as possible or if not possible, communicate another ETA for the vessel so it can adjust its speed and manage just in time arrival (\textit{JIT}).
+The port is defined, for the scope of this work, by manually defining an area that covers the whole operational area of the port, to include all berths and the possible routes to approach the port. For all vessels except small pleasure boats, the Port of Naantali is approachable from one direction, see Figure \ref{fig:FINLI-box}. The bounding box in red in Figure \ref{fig:FINLI-box} is what defines the area of when a vessel has entered the port \textit{i.e.} what defines a port. For the scope of this thesis, it is the port authorities' responsibility to ensure that vessels are allowed to berth as close to the ETA as possible or, if not possible, communicate another ETA for the vessel so it can adjust its speed and manage just in time arrival (\textit{JIT}).
 
 \begin{figure}[H]
 \centering
