@@ -188,7 +188,8 @@ A prediction will be made for the last timestep in the time window, which in ter
 
 
 \subsection{RNN model implementation}
-The neural network architecture implemented is a RNN with LSTM units. Earlier work has concluded that that the LSTM unit performed better than other alternatives, in a similar task of predicting the ETA \cite{El_2020}. The decision to not look into other alternatives was supported by these findings and the nature of how RNNs work, compared to regular feedforward neural networks or other types of neural networks.
+\label{sec:rnn-impl}
+The neural network architecture implemented is a RNN with TensorFlow LSTM units. Earlier work has concluded that that the LSTM unit performed better than other alternatives, in a similar task of predicting the ETA \cite{El_2020}. The decision to not look into other alternatives was supported by these findings and the nature of how RNNs work, compared to regular feedforward neural networks or other types of neural networks.
 
 Keras implements this architecture without much effort required from the user, the main work was put into manipulating and reshaping of the data, as the model requires a certain kind of data structure.
 

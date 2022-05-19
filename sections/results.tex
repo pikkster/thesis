@@ -3,8 +3,33 @@
 
 
 \begin{document}
+The training process was done in an iterative process, by training on one complete route, from start to finish, thus training the model on complete routes that are divided into time windows as defined in Figure \ref{fig:seq-data}. This process was preferred to training on random sections of the route, as the model was confidently trained on the complete path of the route and no blind spots could be introduced.
 
-3938 for training and 35 for testing
+The total number of routes discovered and validated was 3973. From this collection of routes, 35 were set aside for testing the performance, meaning there were 3938 routes used for training. The settings for the model is described in Section \ref{sec:rnn-impl} and the training was set to 100 epochs.
+
+The loss decreased the most during the first 50 epochs, after which the improvement stagnated, but no significant loss penalty was discovered when training for more epochs. However, a balance between decreasing the loss and the time it will take to train the model, without overfitting, is important to achieve a model that is feasible for real world applications. Therefore, the number of epochs was set to 100.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Metric} & \textbf{Loss} \\ \hline
+Mean            & 0.013         \\ \hline
+Minimum         & 0.000021      \\ \hline
+Maximum         & 0.059         \\ \hline
+\end{tabular}
+\caption{Performance of test routes.}
+\label{tab:loss-perf}
+\end{table}
+
+The loss values in Table \ref{tab:loss-perf} does not provide any useful information without comparing the actual predictions to what the true value is. Inspecting the predicted time with the true value gives a better understanding of the loss values impact on the result and what loss value results in a good prediction. A loss value of 0.000x gives the performance wanted.
+
+The prediction is processed one complete route at once for simplicity but the predictions are made one time window at a time and not the whole route at once. A prediction can be made for any section of the route with the time window corresponding to that section.
+
+The maximum loss value for the model comes from a route that is abnormal compared to other routes discovered. A slow moving vessel travelling a route not visited by many other vessels.
+
+The performance of the model leaves some room for improvement and it was thus discovered that the direction of travel has an impact on the route and stopped the model from reaching a performance sought after. Proving that this is the case with a \textit{balanced} model and one \textit{biased} model.
+
 
 Mean loss for 35 training routes
 
@@ -16,14 +41,17 @@ Max 0.05850563943386078
 
 Std 0.015516533321899
 
+The idea to learn certain areas historical data and utilizing that to predict ETA is possible and might be an alternative to automatically update the ETA if not present or validating the accuracy of the broadcasted ETA with the prediction. The generic model is perhaps not there when measuring the overall performance, but training separate models on the overall direction from which the vessel is travelling from creates a model that can accurately predict the ETA within the constraints set. 
+
+
 \subsection{ETA prediction}
 
 \subsubsection{Biased training data by direction}
 East bound training with 277 train and 9 test
 
-Average loss 0,002137
+Average loss 0,002137 very close the the loss limit where the model is capable of predicting within +- one hour for the whole route.
 
-Std 0,00142
+Std 0,00142 shows that the overall performance is good, not only a few very good performing and couple bad performing as with the generic model.
 \subsection{Navigation in the archipelago}
 
 Models difficulties to predict ETA within the archipelago
